@@ -20,6 +20,21 @@ define Package/drcom/description
 	DRCOM 3rd client
 endef
 
+define Package/drcom/postinst
+#!/bin/sh
+echo "post install: patching ppp.sh"
+sed -i '/#added by gdut-drcom/d' /lib/netifd/proto/ppp.sh
+sed -i '/proto_run_command/i username=$$(echo -e "\\r\\n$$username")    #added by gdut-drcom!' /lib/netifd/proto/ppp.sh
+echo "patched!"
+endef
+
+define Package/drcom/prerm
+#!/bin/sh
+echo "pre remove: unpatching ppp.sh!"
+sed -i '/#added by gdut-drcom/d' /lib/netifd/proto/ppp.sh
+echo "unpatched!"
+endef
+
 define Package/drcom/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) ./files/drcom $(1)/usr/bin
