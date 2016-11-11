@@ -2,4 +2,6 @@
 [ "$ACTION" = ifup ] || exit 0
 [ "$INTERFACE" = wan ] || exit 0
 sleep 5
+logger -p daemon.info -t "drcom" \
+	"Start request sent due to '$ACTION' of 'wan'"
 /etc/init.d/drcom start
