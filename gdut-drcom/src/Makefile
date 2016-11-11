@@ -1,9 +1,9 @@
 #CC:=gcc
-CFLAGS+= -Wall -DDEBUG -DVERSION=\"1.5-5\"
+CFLAGS+= -Wall -DDEBUG -DVERSION=\"1.6-0\"
 
 objects=gdut-drcom.o config.o auth.o
 
-all: gdut-drcom
+all: gdut-drcom 
 	@echo gdut-drcom
 
 ifeq ($(cryptlib), polarssl)
@@ -31,7 +31,6 @@ gdut-drcom.o: gdut-drcom.c
 
 config.o: config.c config.h
 	$(CC) $(CFLAGS) -c $<
-
 auth.o: auth.c config.h
 	$(CC) $(CFLAGS) -c $<
 
