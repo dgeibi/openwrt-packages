@@ -49,9 +49,8 @@ echo "unpatched!"
 endef
 
 define Package/gdut-drcom/install
-	@echo "############## Package/gdut-drcom/install"
 	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/gdut-drcom $(1)/usr/bin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/gdut-drcom $(1)/usr/bin
 	$(INSTALL_DIR) $(1)/etc
 	$(INSTALL_CONF) ./files/gdut-drcom.conf $(1)/etc/gdut-drcom.conf
 	$(INSTALL_DIR) $(1)/etc/init.d
