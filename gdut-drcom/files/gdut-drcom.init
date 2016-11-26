@@ -6,7 +6,7 @@ CONF=/etc/gdut-drcom.conf
 
 start_service() {
 	procd_open_instance
-	procd_set_param command /usr/bin/gdut-drcom --enable-crypt -c $CONF
+	procd_set_param command /usr/bin/gdut-drcom -c $CONF
 	procd_set_param file $CONF
 	procd_set_param user root
 	procd_set_param stdout 0

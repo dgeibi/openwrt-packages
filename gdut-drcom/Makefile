@@ -1,34 +1,36 @@
+#
+# Copyright (C) 2006-2016 OpenWrt.org
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
+
 include $(TOPDIR)/rules.mk
-include $(INCLUDE_DIR)/package.mk
 
 PKG_NAME:=gdut-drcom
-PKG_VERSION:=1.6
-PKG_RELEASE:=0
-PKG_MAINTAINER:=CHW
+PKG_VERSION:=1.6.1
+PKG_RELEASE:=1
 
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
+PKG_SOURCE_URL:=https://github.com/chenhaowen01/gdut-drcom/raw/master/release
+PKG_MD5SUM:=4c0cc49f2deadb8e90d948ca9420634a
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
+PKG_LICENSE:=GPL-3.0+
+
+#PKG_INSTALL:=1
+
+include $(INCLUDE_DIR)/package.mk
+MAKE_PATH:=src
 
 define Package/gdut-drcom
-	SECTION:=utils
-	CATEGORY:=Utilities
-	DEFAULT:=y
-	TITLE:=gdut-drcom -- a third-party drcom client for gdut
-#	DEPENDS:=+libgcrypt
-#	DEPENDS:=+libopenssl
-#	DEPENDS:=+libpolarssl
+  SECTION:=utils
+  CATEGORY:=Utilities
+  TITLE:=gdut-drcom for openwrt is a third party drcom client openwrt.
+  MAINTAINER:=chw
 endef
 
-define Build/Prepare
-	@echo "############## Build/Prepare"
-	$(Build/Prepare/Default)
-	$(CP) ./src/* $(PKG_BUILD_DIR)
-endef
-
-define Build/Compile
-	@echo "############## Build/Compile"
-	export CFLAGS="$CFLAGS -DDEBUG"
-#	$(call Build/Compile/Default, cryptlib=openssl)
-	$(call Build/Compile/Default)
+define Package/gdut-drcom/description
+	gdut-drcom for openwrt is a third party drcom client openwrt.
 endef
 
 define Package/gdut-drcom/postinst
