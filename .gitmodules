@@ -4,6 +4,3 @@
 [submodule "shadowsocks-libev"]
 	path = shadowsocks-libev
 	url = https://github.com/dgeibi/openwrt-shadowsocks.git
-[submodule "redsocks2"]
-	path = redsocks2
-	url = https://github.com/dgeibi/openwrt-redsocks2.git
