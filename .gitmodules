@@ -6,4 +6,4 @@
 	url = https://github.com/dgeibi/openwrt-shadowsocks.git
 [submodule "redsocks2"]
 	path = redsocks2
-	url = https://github.com/aa65535/openwrt-redsocks2.git
+	url = https://github.com/dgeibi/openwrt-redsocks2.git
