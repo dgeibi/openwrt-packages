@@ -7,7 +7,7 @@ CONFIG="/etc/shadowsocks.json"
 
 start_service() {
 	procd_open_instance
-	procd_set_param command /usr/bin/ss-redir -c $CONFIG -b 0.0.0.0 -l 10800
+	procd_set_param command /usr/bin/ss-local -c $CONFIG -b 0.0.0.0 -l 10800
 	procd_set_param file $CONFIG
 	procd_set_param stdout 1
 	procd_set_param stderr 1

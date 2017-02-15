@@ -1,0 +1,9 @@
+[submodule "simple-obfs"]
+	path = simple-obfs
+	url = https://github.com/aa65535/openwrt-simple-obfs.git
+[submodule "shadowsocks-libev"]
+	path = shadowsocks-libev
+	url = https://github.com/dgeibi/openwrt-shadowsocks.git
+[submodule "redsocks2"]
+	path = redsocks2
+	url = https://github.com/aa65535/openwrt-redsocks2.git
