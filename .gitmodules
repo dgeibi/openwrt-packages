@@ -4,3 +4,6 @@
 [submodule "shadowsocks-libev"]
 	path = shadowsocks-libev
 	url = https://github.com/dgeibi/openwrt-shadowsocks.git
+[submodule "pcap-dnsproxy"]
+	path = pcap-dnsproxy
+	url = https://github.com/dgeibi/openwrt-Pcap_DNSProxy.git
