@@ -7,3 +7,6 @@
 [submodule "pcap-dnsproxy"]
 	path = pcap-dnsproxy
 	url = https://github.com/dgeibi/openwrt-Pcap_DNSProxy.git
+[submodule "openwrt-feeds"]
+  path = ss-feeds
+  url = https://github.com/shadowsocks/openwrt-feeds.git

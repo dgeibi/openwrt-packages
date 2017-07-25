@@ -3,7 +3,7 @@ include $(INCLUDE_DIR)/package.mk
 
 PKG_NAME:=drcom
 PKG_VERSION:=1.0.0
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 define Build/Compile
 endef
@@ -18,21 +18,6 @@ endef
 
 define Package/drcom/description
 	DRCOM 3rd client
-endef
-
-define Package/drcom/postinst
-#!/bin/sh
-echo "post install: patching ppp.sh"
-sed -i '/#added by gdut-drcom/d' /lib/netifd/proto/ppp.sh
-sed -i '/proto_run_command/i username=$$(echo -e "\\r\\n$$username")    #added by gdut-drcom!' /lib/netifd/proto/ppp.sh
-echo "patched!"
-endef
-
-define Package/drcom/prerm
-#!/bin/sh
-echo "pre remove: unpatching ppp.sh!"
-sed -i '/#added by gdut-drcom/d' /lib/netifd/proto/ppp.sh
-echo "unpatched!"
 endef
 
 define Package/drcom/install
