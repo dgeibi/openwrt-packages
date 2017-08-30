@@ -10,3 +10,6 @@
 [submodule "openwrt-feeds"]
   path = ss-feeds
   url = https://github.com/shadowsocks/openwrt-feeds.git
+[submodule "dns-forwarder"]
+	path = dns-forwarder
+	url = https://github.com/aa65535/openwrt-dns-forwarder.git
