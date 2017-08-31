@@ -1,0 +1,15 @@
+#!/bin/sh /etc/rc.common
+
+START=99
+STOP=15
+
+FILE=/lib/netifd/proto/ppp.sh
+
+start() {
+  sed -i '/#added by gdut-drcom/d' $FILE
+  sed -i '/proto_run_command/i username=$(echo -e "$username")    #added by gdut-drcom' $FILE
+}
+
+stop() {
+  sed -i '/#added by gdut-drcom/d' $FILE
+}

@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=gdut-drcom
 PKG_VERSION:=1.6.8
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 
 PKG_SOURCE:=$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://github.com/chenhaowen01/$(PKG_NAME)/archive
@@ -38,6 +38,7 @@ define Package/gdut-drcom/install
 	$(INSTALL_CONF) ./files/gdut-drcom.conf $(1)/etc/gdut-drcom.conf
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/gdut-drcom.init $(1)/etc/init.d/gdut-drcom
+	$(INSTALL_BIN) ./files/gdut-drcom-patch.init $(1)/etc/init.d/gdut-drcom-patch
 	$(INSTALL_DIR)  $(1)/etc/hotplug.d/iface
 	$(INSTALL_DATA) ./files/gdut-drcom.hotplug $(1)/etc/hotplug.d/iface/99-gdut-drcom
 endef
