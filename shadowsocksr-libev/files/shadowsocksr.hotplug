@@ -1,0 +1,20 @@
+#!/bin/sh
+
+[ "$INTERFACE" = wan ] || exit 0
+
+enabled=$(uci -q get shadowsocksr.@shadowsocksr[0].enabled)
+[ "1" = "$enabled" ] || [ "on" = "$enabled" ] || [ "true" = "$enabled" ] || exit 0
+
+[ "$ACTION" = ifup ] && {
+	sleep 5
+	logger -p daemon.info -t "Shadowsocksr" \
+		"Start request sent due to '$ACTION' of 'wan'"
+	/etc/init.d/shadowsocksr start
+	exit 0
+}
+
+[ "$ACTION" = ifdown ] && {
+	logger -p daemon.info -t "Shadowsocksr" \
+		"Shutdown request sent due to '$ACTION' of 'wan'"
+	/etc/init.d/shadowsocksr stop
+}
